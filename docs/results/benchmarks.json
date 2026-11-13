@@ -1,0 +1,1471 @@
+{
+ "exp1_round_robin": {
+  "config": {
+   "rows": 6,
+   "cols": 7,
+   "n": 4,
+   "gravity": true
+  },
+  "games_per_pair": 40,
+  "opening_plies": 4,
+  "seed": 2026,
+  "agents": [
+   "Random",
+   "Greedy",
+   "Minimax (d=3)",
+   "Alpha-Beta (d=5)"
+  ],
+  "standings": [
+   {
+    "agent": "Random",
+    "spec": {
+     "kind": "random"
+    },
+    "games": 120,
+    "wins": 0,
+    "losses": 120,
+    "draws": 0,
+    "win_rate": 0.0,
+    "loss_rate": 1.0,
+    "draw_rate": 0.0,
+    "decisions": 466,
+    "avg_time_ms": 0.006521937770866835,
+    "max_time_ms": 0.04364200003692531,
+    "avg_nodes": 1.0,
+    "total_nodes": 466,
+    "avg_depth_reached": 0.0,
+    "configured_depth": 0
+   },
+   {
+    "agent": "Greedy",
+    "spec": {
+     "kind": "greedy"
+    },
+    "games": 120,
+    "wins": 59,
+    "losses": 57,
+    "draws": 4,
+    "win_rate": 0.49166666666666664,
+    "loss_rate": 0.475,
+    "draw_rate": 0.03333333333333333,
+    "decisions": 939,
+    "avg_time_ms": 0.3309746677319046,
+    "max_time_ms": 1.0818159998962074,
+    "avg_nodes": 45.42385516506922,
+    "total_nodes": 42653,
+    "avg_depth_reached": 0.0,
+    "configured_depth": 0
+   },
+   {
+    "agent": "Minimax (d=3)",
+    "spec": {
+     "kind": "minimax",
+     "depth": 3
+    },
+    "games": 120,
+    "wins": 75,
+    "losses": 38,
+    "draws": 7,
+    "win_rate": 0.625,
+    "loss_rate": 0.31666666666666665,
+    "draw_rate": 0.058333333333333334,
+    "decisions": 1055,
+    "avg_time_ms": 9.34690148910068,
+    "max_time_ms": 33.13259499998367,
+    "avg_nodes": 295.7327014218009,
+    "total_nodes": 311998,
+    "avg_depth_reached": 2.981042654028436,
+    "configured_depth": 3
+   },
+   {
+    "agent": "Alpha-Beta (d=5)",
+    "spec": {
+     "kind": "alphabeta",
+     "depth": 5
+    },
+    "games": 120,
+    "wins": 98,
+    "losses": 17,
+    "draws": 5,
+    "win_rate": 0.8166666666666667,
+    "loss_rate": 0.14166666666666666,
+    "draw_rate": 0.041666666666666664,
+    "decisions": 1070,
+    "avg_time_ms": 39.25652771402099,
+    "max_time_ms": 248.44815800008746,
+    "avg_nodes": 1349.959813084112,
+    "total_nodes": 1444457,
+    "avg_depth_reached": 4.896261682242991,
+    "configured_depth": 5
+   }
+  ],
+  "win_matrix": {
+   "Random": {
+    "Random": null,
+    "Greedy": 0.0,
+    "Minimax (d=3)": 0.0,
+    "Alpha-Beta (d=5)": 0.0
+   },
+   "Greedy": {
+    "Random": 1.0,
+    "Greedy": null,
+    "Minimax (d=3)": 0.35,
+    "Alpha-Beta (d=5)": 0.125
+   },
+   "Minimax (d=3)": {
+    "Random": 1.0,
+    "Greedy": 0.575,
+    "Minimax (d=3)": null,
+    "Alpha-Beta (d=5)": 0.3
+   },
+   "Alpha-Beta (d=5)": {
+    "Random": 1.0,
+    "Greedy": 0.85,
+    "Minimax (d=3)": 0.6,
+    "Alpha-Beta (d=5)": null
+   }
+  },
+  "pairings": [
+   {
+    "agent_a": "Random",
+    "agent_b": "Greedy",
+    "spec_a": {
+     "kind": "random"
+    },
+    "spec_b": {
+     "kind": "greedy"
+    },
+    "config": {
+     "rows": 6,
+     "cols": 7,
+     "n": 4,
+     "gravity": true
+    },
+    "games": 40,
+    "opening_plies": 4,
+    "seed": 2043,
+    "a_wins": 0,
+    "b_wins": 40,
+    "draws": 0,
+    "a_win_rate": 0.0,
+    "b_win_rate": 1.0,
+    "draw_rate": 0.0,
+    "avg_game_length": 10.4,
+    "first_player_wins": {
+     "first": 20,
+     "second": 20
+    },
+    "a_stats": {
+     "decisions": 118,
+     "avg_time_ms": 0.0036923389874789145,
+     "max_time_ms": 0.04364200003692531,
+     "avg_nodes": 1.0,
+     "total_nodes": 118,
+     "avg_depth_reached": 0.0,
+     "configured_depth": 0
+    },
+    "b_stats": {
+     "decisions": 138,
+     "avg_time_ms": 0.3127582391331102,
+     "max_time_ms": 1.026174000003266,
+     "avg_nodes": 48.41304347826087,
+     "total_nodes": 6681,
+     "avg_depth_reached": 0.0,
+     "configured_depth": 0
+    }
+   },
+   {
+    "agent_a": "Random",
+    "agent_b": "Minimax (d=3)",
+    "spec_a": {
+     "kind": "random"
+    },
+    "spec_b": {
+     "kind": "minimax",
+     "depth": 3
+    },
+    "config": {
+     "rows": 6,
+     "cols": 7,
+     "n": 4,
+     "gravity": true
+    },
+    "games": 40,
+    "opening_plies": 4,
+    "seed": 2060,
+    "a_wins": 0,
+    "b_wins": 40,
+    "draws": 0,
+    "a_win_rate": 0.0,
+    "b_win_rate": 1.0,
+    "draw_rate": 0.0,
+    "avg_game_length": 13.25,
+    "first_player_wins": {
+     "first": 20,
+     "second": 20
+    },
+    "a_stats": {
+     "decisions": 175,
+     "avg_time_ms": 0.006787320002591254,
+     "max_time_ms": 0.042702000087047054,
+     "avg_nodes": 1.0,
+     "total_nodes": 175,
+     "avg_depth_reached": 0.0,
+     "configured_depth": 0
+    },
+    "b_stats": {
+     "decisions": 195,
+     "avg_time_ms": 11.667962800001055,
+     "max_time_ms": 22.07449100001213,
+     "avg_nodes": 378.4923076923077,
+     "total_nodes": 73806,
+     "avg_depth_reached": 3.0,
+     "configured_depth": 3
+    }
+   },
+   {
+    "agent_a": "Random",
+    "agent_b": "Alpha-Beta (d=5)",
+    "spec_a": {
+     "kind": "random"
+    },
+    "spec_b": {
+     "kind": "alphabeta",
+     "depth": 5
+    },
+    "config": {
+     "rows": 6,
+     "cols": 7,
+     "n": 4,
+     "gravity": true
+    },
+    "games": 40,
+    "opening_plies": 4,
+    "seed": 2077,
+    "a_wins": 0,
+    "b_wins": 40,
+    "draws": 0,
+    "a_win_rate": 0.0,
+    "b_win_rate": 1.0,
+    "draw_rate": 0.0,
+    "avg_game_length": 13.15,
+    "first_player_wins": {
+     "first": 20,
+     "second": 20
+    },
+    "a_stats": {
+     "decisions": 173,
+     "avg_time_ms": 0.008183502891606726,
+     "max_time_ms": 0.023111999894354085,
+     "avg_nodes": 1.0,
+     "total_nodes": 173,
+     "avg_depth_reached": 0.0,
+     "configured_depth": 0
+    },
+    "b_stats": {
+     "decisions": 193,
+     "avg_time_ms": 49.5820388290175,
+     "max_time_ms": 234.36430399999608,
+     "avg_nodes": 1763.9067357512954,
+     "total_nodes": 340434,
+     "avg_depth_reached": 5.0,
+     "configured_depth": 5
+    }
+   },
+   {
+    "agent_a": "Greedy",
+    "agent_b": "Minimax (d=3)",
+    "spec_a": {
+     "kind": "greedy"
+    },
+    "spec_b": {
+     "kind": "minimax",
+     "depth": 3
+    },
+    "config": {
+     "rows": 6,
+     "cols": 7,
+     "n": 4,
+     "gravity": true
+    },
+    "games": 40,
+    "opening_plies": 4,
+    "seed": 2128,
+    "a_wins": 14,
+    "b_wins": 23,
+    "draws": 3,
+    "a_win_rate": 0.35,
+    "b_win_rate": 0.575,
+    "draw_rate": 0.075,
+    "avg_game_length": 24.1,
+    "first_player_wins": {
+     "first": 16,
+     "second": 21
+    },
+    "a_stats": {
+     "decisions": 400,
+     "avg_time_ms": 0.32640715750062554,
+     "max_time_ms": 1.0373130000971287,
+     "avg_nodes": 44.9575,
+     "total_nodes": 17983,
+     "avg_depth_reached": 0.0,
+     "configured_depth": 0
+    },
+    "b_stats": {
+     "decisions": 404,
+     "avg_time_ms": 9.200766700498415,
+     "max_time_ms": 33.13259499998367,
+     "avg_nodes": 293.26237623762376,
+     "total_nodes": 118478,
+     "avg_depth_reached": 2.98019801980198,
+     "configured_depth": 3
+    }
+   },
+   {
+    "agent_a": "Greedy",
+    "agent_b": "Alpha-Beta (d=5)",
+    "spec_a": {
+     "kind": "greedy"
+    },
+    "spec_b": {
+     "kind": "alphabeta",
+     "depth": 5
+    },
+    "config": {
+     "rows": 6,
+     "cols": 7,
+     "n": 4,
+     "gravity": true
+    },
+    "games": 40,
+    "opening_plies": 4,
+    "seed": 2145,
+    "a_wins": 5,
+    "b_wins": 34,
+    "draws": 1,
+    "a_win_rate": 0.125,
+    "b_win_rate": 0.85,
+    "draw_rate": 0.025,
+    "avg_game_length": 24.425,
+    "first_player_wins": {
+     "first": 19,
+     "second": 20
+    },
+    "a_stats": {
+     "decisions": 401,
+     "avg_time_ms": 0.3417997830414937,
+     "max_time_ms": 1.0818159998962074,
+     "avg_nodes": 44.86034912718205,
+     "total_nodes": 17989,
+     "avg_depth_reached": 0.0,
+     "configured_depth": 0
+    },
+    "b_stats": {
+     "decisions": 416,
+     "avg_time_ms": 37.75701718990703,
+     "max_time_ms": 159.28632100008144,
+     "avg_nodes": 1283.0841346153845,
+     "total_nodes": 533763,
+     "avg_depth_reached": 4.862980769230769,
+     "configured_depth": 5
+    }
+   },
+   {
+    "agent_a": "Minimax (d=3)",
+    "agent_b": "Alpha-Beta (d=5)",
+    "spec_a": {
+     "kind": "minimax",
+     "depth": 3
+    },
+    "spec_b": {
+     "kind": "alphabeta",
+     "depth": 5
+    },
+    "config": {
+     "rows": 6,
+     "cols": 7,
+     "n": 4,
+     "gravity": true
+    },
+    "games": 40,
+    "opening_plies": 4,
+    "seed": 2213,
+    "a_wins": 12,
+    "b_wins": 24,
+    "draws": 4,
+    "a_win_rate": 0.3,
+    "b_win_rate": 0.6,
+    "draw_rate": 0.1,
+    "avg_game_length": 26.925,
+    "first_player_wins": {
+     "first": 21,
+     "second": 15
+    },
+    "a_stats": {
+     "decisions": 456,
+     "avg_time_ms": 8.483812671051874,
+     "max_time_ms": 25.028550000001815,
+     "avg_nodes": 262.530701754386,
+     "total_nodes": 119714,
+     "avg_depth_reached": 2.973684210526316,
+     "configured_depth": 3
+    },
+    "b_stats": {
+     "decisions": 461,
+     "avg_time_ms": 36.28683732971964,
+     "max_time_ms": 248.44815800008746,
+     "avg_nodes": 1237.006507592191,
+     "total_nodes": 570260,
+     "avg_depth_reached": 4.882863340563992,
+     "configured_depth": 5
+    }
+   }
+  ]
+ },
+ "exp2_minimax_depths": {
+  "tournament": {
+   "config": {
+    "rows": 6,
+    "cols": 7,
+    "n": 4,
+    "gravity": true
+   },
+   "games_per_pair": 30,
+   "opening_plies": 4,
+   "seed": 2027,
+   "agents": [
+    "Minimax (d=1)",
+    "Minimax (d=2)",
+    "Minimax (d=3)",
+    "Minimax (d=4)"
+   ],
+   "standings": [
+    {
+     "agent": "Minimax (d=1)",
+     "spec": {
+      "kind": "minimax",
+      "depth": 1
+     },
+     "games": 90,
+     "wins": 19,
+     "losses": 63,
+     "draws": 8,
+     "win_rate": 0.2111111111111111,
+     "loss_rate": 0.7,
+     "draw_rate": 0.08888888888888889,
+     "decisions": 946,
+     "avg_time_ms": 0.24171971775927814,
+     "max_time_ms": 0.7897650000359135,
+     "avg_nodes": 5.954545454545454,
+     "total_nodes": 5633,
+     "avg_depth_reached": 1.0,
+     "configured_depth": 1
+    },
+    {
+     "agent": "Minimax (d=2)",
+     "spec": {
+      "kind": "minimax",
+      "depth": 2
+     },
+     "games": 90,
+     "wins": 42,
+     "losses": 34,
+     "draws": 14,
+     "win_rate": 0.4666666666666667,
+     "loss_rate": 0.37777777777777777,
+     "draw_rate": 0.15555555555555556,
+     "decisions": 1295,
+     "avg_time_ms": 1.1932189745182165,
+     "max_time_ms": 5.54000099998575,
+     "avg_nodes": 37.11969111969112,
+     "total_nodes": 48070,
+     "avg_depth_reached": 1.9806949806949807,
+     "configured_depth": 2
+    },
+    {
+     "agent": "Minimax (d=3)",
+     "spec": {
+      "kind": "minimax",
+      "depth": 3
+     },
+     "games": 90,
+     "wins": 47,
+     "losses": 37,
+     "draws": 6,
+     "win_rate": 0.5222222222222223,
+     "loss_rate": 0.4111111111111111,
+     "draw_rate": 0.06666666666666667,
+     "decisions": 1128,
+     "avg_time_ms": 8.22740574645591,
+     "max_time_ms": 26.361039999983404,
+     "avg_nodes": 259.875,
+     "total_nodes": 293139,
+     "avg_depth_reached": 2.9645390070921986,
+     "configured_depth": 3
+    },
+    {
+     "agent": "Minimax (d=4)",
+     "spec": {
+      "kind": "minimax",
+      "depth": 4
+     },
+     "games": 90,
+     "wins": 54,
+     "losses": 28,
+     "draws": 8,
+     "win_rate": 0.6,
+     "loss_rate": 0.3111111111111111,
+     "draw_rate": 0.08888888888888889,
+     "decisions": 1153,
+     "avg_time_ms": 47.55614671292506,
+     "max_time_ms": 150.0602630000003,
+     "avg_nodes": 1529.7224631396357,
+     "total_nodes": 1763770,
+     "avg_depth_reached": 3.919340849956635,
+     "configured_depth": 4
+    }
+   ],
+   "win_matrix": {
+    "Minimax (d=1)": {
+     "Minimax (d=1)": null,
+     "Minimax (d=2)": 0.2,
+     "Minimax (d=3)": 0.2,
+     "Minimax (d=4)": 0.23333333333333334
+    },
+    "Minimax (d=2)": {
+     "Minimax (d=1)": 0.6333333333333333,
+     "Minimax (d=2)": null,
+     "Minimax (d=3)": 0.43333333333333335,
+     "Minimax (d=4)": 0.3333333333333333
+    },
+    "Minimax (d=3)": {
+     "Minimax (d=1)": 0.7333333333333333,
+     "Minimax (d=2)": 0.4666666666666667,
+     "Minimax (d=3)": null,
+     "Minimax (d=4)": 0.36666666666666664
+    },
+    "Minimax (d=4)": {
+     "Minimax (d=1)": 0.7333333333333333,
+     "Minimax (d=2)": 0.4666666666666667,
+     "Minimax (d=3)": 0.6,
+     "Minimax (d=4)": null
+    }
+   },
+   "pairings": [
+    {
+     "agent_a": "Minimax (d=1)",
+     "agent_b": "Minimax (d=2)",
+     "spec_a": {
+      "kind": "minimax",
+      "depth": 1
+     },
+     "spec_b": {
+      "kind": "minimax",
+      "depth": 2
+     },
+     "config": {
+      "rows": 6,
+      "cols": 7,
+      "n": 4,
+      "gravity": true
+     },
+     "games": 30,
+     "opening_plies": 4,
+     "seed": 2044,
+     "a_wins": 6,
+     "b_wins": 19,
+     "draws": 5,
+     "a_win_rate": 0.2,
+     "b_win_rate": 0.6333333333333333,
+     "draw_rate": 0.16666666666666666,
+     "avg_game_length": 32.333333333333336,
+     "first_player_wins": {
+      "first": 10,
+      "second": 15
+     },
+     "a_stats": {
+      "decisions": 422,
+      "avg_time_ms": 0.22241996919415624,
+      "max_time_ms": 0.7897650000359135,
+      "avg_nodes": 5.509478672985782,
+      "total_nodes": 2325,
+      "avg_depth_reached": 1.0,
+      "configured_depth": 1
+     },
+     "b_stats": {
+      "decisions": 428,
+      "avg_time_ms": 1.230791577102103,
+      "max_time_ms": 5.54000099998575,
+      "avg_nodes": 38.572429906542055,
+      "total_nodes": 16509,
+      "avg_depth_reached": 1.9789719626168225,
+      "configured_depth": 2
+     }
+    },
+    {
+     "agent_a": "Minimax (d=1)",
+     "agent_b": "Minimax (d=3)",
+     "spec_a": {
+      "kind": "minimax",
+      "depth": 1
+     },
+     "spec_b": {
+      "kind": "minimax",
+      "depth": 3
+     },
+     "config": {
+      "rows": 6,
+      "cols": 7,
+      "n": 4,
+      "gravity": true
+     },
+     "games": 30,
+     "opening_plies": 4,
+     "seed": 2061,
+     "a_wins": 6,
+     "b_wins": 22,
+     "draws": 2,
+     "a_win_rate": 0.2,
+     "b_win_rate": 0.7333333333333333,
+     "draw_rate": 0.06666666666666667,
+     "avg_game_length": 21.833333333333332,
+     "first_player_wins": {
+      "first": 15,
+      "second": 13
+     },
+     "a_stats": {
+      "decisions": 263,
+      "avg_time_ms": 0.2549436882147776,
+      "max_time_ms": 0.7697760000837661,
+      "avg_nodes": 6.319391634980988,
+      "total_nodes": 1662,
+      "avg_depth_reached": 1.0,
+      "configured_depth": 1
+     },
+     "b_stats": {
+      "decisions": 272,
+      "avg_time_ms": 9.91793040809174,
+      "max_time_ms": 26.361039999983404,
+      "avg_nodes": 310.2279411764706,
+      "total_nodes": 84382,
+      "avg_depth_reached": 2.9779411764705883,
+      "configured_depth": 3
+     }
+    },
+    {
+     "agent_a": "Minimax (d=1)",
+     "agent_b": "Minimax (d=4)",
+     "spec_a": {
+      "kind": "minimax",
+      "depth": 1
+     },
+     "spec_b": {
+      "kind": "minimax",
+      "depth": 4
+     },
+     "config": {
+      "rows": 6,
+      "cols": 7,
+      "n": 4,
+      "gravity": true
+     },
+     "games": 30,
+     "opening_plies": 4,
+     "seed": 2078,
+     "a_wins": 7,
+     "b_wins": 22,
+     "draws": 1,
+     "a_win_rate": 0.23333333333333334,
+     "b_win_rate": 0.7333333333333333,
+     "draw_rate": 0.03333333333333333,
+     "avg_game_length": 21.633333333333333,
+     "first_player_wins": {
+      "first": 17,
+      "second": 12
+     },
+     "a_stats": {
+      "decisions": 261,
+      "avg_time_ms": 0.25959937164696045,
+      "max_time_ms": 0.594752999973025,
+      "avg_nodes": 6.306513409961686,
+      "total_nodes": 1646,
+      "avg_depth_reached": 1.0,
+      "configured_depth": 1
+     },
+     "b_stats": {
+      "decisions": 268,
+      "avg_time_ms": 61.54691574626927,
+      "max_time_ms": 140.6080969999266,
+      "avg_nodes": 1983.3097014925372,
+      "total_nodes": 531527,
+      "avg_depth_reached": 3.9813432835820897,
+      "configured_depth": 4
+     }
+    },
+    {
+     "agent_a": "Minimax (d=2)",
+     "agent_b": "Minimax (d=3)",
+     "spec_a": {
+      "kind": "minimax",
+      "depth": 2
+     },
+     "spec_b": {
+      "kind": "minimax",
+      "depth": 3
+     },
+     "config": {
+      "rows": 6,
+      "cols": 7,
+      "n": 4,
+      "gravity": true
+     },
+     "games": 30,
+     "opening_plies": 4,
+     "seed": 2129,
+     "a_wins": 13,
+     "b_wins": 14,
+     "draws": 3,
+     "a_win_rate": 0.43333333333333335,
+     "b_win_rate": 0.4666666666666667,
+     "draw_rate": 0.1,
+     "avg_game_length": 32.06666666666667,
+     "first_player_wins": {
+      "first": 8,
+      "second": 19
+     },
+     "a_stats": {
+      "decisions": 421,
+      "avg_time_ms": 1.2875784560579273,
+      "max_time_ms": 4.262525000058304,
+      "avg_nodes": 39.17102137767221,
+      "total_nodes": 16491,
+      "avg_depth_reached": 1.9786223277909738,
+      "configured_depth": 2
+     },
+     "b_stats": {
+      "decisions": 421,
+      "avg_time_ms": 7.941893071259262,
+      "max_time_ms": 25.083384000026854,
+      "avg_nodes": 249.45605700712588,
+      "total_nodes": 105021,
+      "avg_depth_reached": 2.9572446555819476,
+      "configured_depth": 3
+     }
+    },
+    {
+     "agent_a": "Minimax (d=2)",
+     "agent_b": "Minimax (d=4)",
+     "spec_a": {
+      "kind": "minimax",
+      "depth": 2
+     },
+     "spec_b": {
+      "kind": "minimax",
+      "depth": 4
+     },
+     "config": {
+      "rows": 6,
+      "cols": 7,
+      "n": 4,
+      "gravity": true
+     },
+     "games": 30,
+     "opening_plies": 4,
+     "seed": 2146,
+     "a_wins": 10,
+     "b_wins": 14,
+     "draws": 6,
+     "a_win_rate": 0.3333333333333333,
+     "b_win_rate": 0.4666666666666667,
+     "draw_rate": 0.2,
+     "avg_game_length": 33.766666666666666,
+     "first_player_wins": {
+      "first": 13,
+      "second": 11
+     },
+     "a_stats": {
+      "decisions": 446,
+      "avg_time_ms": 1.0680924820650286,
+      "max_time_ms": 3.7688429999889195,
+      "avg_nodes": 33.789237668161434,
+      "total_nodes": 15070,
+      "avg_depth_reached": 1.984304932735426,
+      "configured_depth": 2
+     },
+     "b_stats": {
+      "decisions": 447,
+      "avg_time_ms": 40.59759016107209,
+      "max_time_ms": 150.0602630000003,
+      "avg_nodes": 1297.0044742729306,
+      "total_nodes": 579761,
+      "avg_depth_reached": 3.883668903803132,
+      "configured_depth": 4
+     }
+    },
+    {
+     "agent_a": "Minimax (d=3)",
+     "agent_b": "Minimax (d=4)",
+     "spec_a": {
+      "kind": "minimax",
+      "depth": 3
+     },
+     "spec_b": {
+      "kind": "minimax",
+      "depth": 4
+     },
+     "config": {
+      "rows": 6,
+      "cols": 7,
+      "n": 4,
+      "gravity": true
+     },
+     "games": 30,
+     "opening_plies": 4,
+     "seed": 2214,
+     "a_wins": 11,
+     "b_wins": 18,
+     "draws": 1,
+     "a_win_rate": 0.36666666666666664,
+     "b_win_rate": 0.6,
+     "draw_rate": 0.03333333333333333,
+     "avg_game_length": 33.1,
+     "first_player_wins": {
+      "first": 13,
+      "second": 16
+     },
+     "a_stats": {
+      "decisions": 435,
+      "avg_time_ms": 7.446665811496927,
+      "max_time_ms": 23.717657000020154,
+      "avg_nodes": 238.4735632183908,
+      "total_nodes": 103736,
+      "avg_depth_reached": 2.9632183908045975,
+      "configured_depth": 3
+     },
+     "b_stats": {
+      "decisions": 438,
+      "avg_time_ms": 46.097125429231085,
+      "max_time_ms": 135.82172799999626,
+      "avg_nodes": 1489.6849315068494,
+      "total_nodes": 652482,
+      "avg_depth_reached": 3.9178082191780823,
+      "configured_depth": 4
+     }
+    }
+   ]
+  },
+  "cost_profile": [
+   {
+    "agent": "Minimax (d=1)",
+    "spec": {
+     "kind": "minimax",
+     "depth": 1
+    },
+    "positions": 27,
+    "avg_nodes": 6.851851851851852,
+    "median_nodes": 7,
+    "avg_time_ms": 0.4310826666706244,
+    "median_time_ms": 0.41148599996176927,
+    "avg_depth_reached": 1.0
+   },
+   {
+    "agent": "Minimax (d=2)",
+    "spec": {
+     "kind": "minimax",
+     "depth": 2
+    },
+    "positions": 27,
+    "avg_nodes": 51.074074074074076,
+    "median_nodes": 55,
+    "avg_time_ms": 2.6012892962996745,
+    "median_time_ms": 2.719436000006681,
+    "avg_depth_reached": 2.0
+   },
+   {
+    "agent": "Minimax (d=3)",
+    "spec": {
+     "kind": "minimax",
+     "depth": 3
+    },
+    "positions": 27,
+    "avg_nodes": 343.962962962963,
+    "median_nodes": 357,
+    "avg_time_ms": 10.866870407421967,
+    "median_time_ms": 9.997010000006412,
+    "avg_depth_reached": 3.0
+   },
+   {
+    "agent": "Minimax (d=4)",
+    "spec": {
+     "kind": "minimax",
+     "depth": 4
+    },
+    "positions": 27,
+    "avg_nodes": 2240.3333333333335,
+    "median_nodes": 2382,
+    "avg_time_ms": 65.2805201111143,
+    "median_time_ms": 68.90283999996427,
+    "avg_depth_reached": 4.0
+   },
+   {
+    "agent": "Minimax (d=5)",
+    "spec": {
+     "kind": "minimax",
+     "depth": 5
+    },
+    "positions": 27,
+    "avg_nodes": 14611.0,
+    "median_nodes": 14843,
+    "avg_time_ms": 430.92928370370174,
+    "median_time_ms": 465.65189600005397,
+    "avg_depth_reached": 5.0
+   }
+  ],
+  "sample_positions": 27
+ },
+ "exp3_equal_depth": {
+  "matches": [
+   {
+    "agent_a": "Minimax (d=2)",
+    "agent_b": "Alpha-Beta (d=2)",
+    "spec_a": {
+     "kind": "minimax",
+     "depth": 2
+    },
+    "spec_b": {
+     "kind": "alphabeta",
+     "depth": 2
+    },
+    "config": {
+     "rows": 6,
+     "cols": 7,
+     "n": 4,
+     "gravity": true
+    },
+    "games": 30,
+    "opening_plies": 4,
+    "seed": 2030,
+    "a_wins": 13,
+    "b_wins": 13,
+    "draws": 4,
+    "a_win_rate": 0.43333333333333335,
+    "b_win_rate": 0.43333333333333335,
+    "draw_rate": 0.13333333333333333,
+    "avg_game_length": 35.666666666666664,
+    "first_player_wins": {
+     "first": 14,
+     "second": 12
+    },
+    "a_stats": {
+     "decisions": 475,
+     "avg_time_ms": 1.080011319999549,
+     "max_time_ms": 12.064219000080811,
+     "avg_nodes": 34.76842105263158,
+     "total_nodes": 16515,
+     "avg_depth_reached": 1.9810526315789474,
+     "configured_depth": 2
+    },
+    "b_stats": {
+     "decisions": 475,
+     "avg_time_ms": 0.6473767578925043,
+     "max_time_ms": 6.244670000000951,
+     "avg_nodes": 21.757894736842104,
+     "total_nodes": 10335,
+     "avg_depth_reached": 1.9810526315789474,
+     "configured_depth": 2
+    }
+   },
+   {
+    "agent_a": "Minimax (d=3)",
+    "agent_b": "Alpha-Beta (d=3)",
+    "spec_a": {
+     "kind": "minimax",
+     "depth": 3
+    },
+    "spec_b": {
+     "kind": "alphabeta",
+     "depth": 3
+    },
+    "config": {
+     "rows": 6,
+     "cols": 7,
+     "n": 4,
+     "gravity": true
+    },
+    "games": 30,
+    "opening_plies": 4,
+    "seed": 2031,
+    "a_wins": 15,
+    "b_wins": 15,
+    "draws": 0,
+    "a_win_rate": 0.5,
+    "b_win_rate": 0.5,
+    "draw_rate": 0.0,
+    "avg_game_length": 24.733333333333334,
+    "first_player_wins": {
+     "first": 14,
+     "second": 16
+    },
+    "a_stats": {
+     "decisions": 311,
+     "avg_time_ms": 9.64301241157035,
+     "max_time_ms": 31.521214999997937,
+     "avg_nodes": 283.3086816720257,
+     "total_nodes": 88109,
+     "avg_depth_reached": 2.9807073954983925,
+     "configured_depth": 3
+    },
+    "b_stats": {
+     "decisions": 311,
+     "avg_time_ms": 3.511584752418808,
+     "max_time_ms": 13.860537000027762,
+     "avg_nodes": 107.60450160771704,
+     "total_nodes": 33465,
+     "avg_depth_reached": 2.977491961414791,
+     "configured_depth": 3
+    }
+   },
+   {
+    "agent_a": "Minimax (d=4)",
+    "agent_b": "Alpha-Beta (d=4)",
+    "spec_a": {
+     "kind": "minimax",
+     "depth": 4
+    },
+    "spec_b": {
+     "kind": "alphabeta",
+     "depth": 4
+    },
+    "config": {
+     "rows": 6,
+     "cols": 7,
+     "n": 4,
+     "gravity": true
+    },
+    "games": 30,
+    "opening_plies": 4,
+    "seed": 2032,
+    "a_wins": 15,
+    "b_wins": 15,
+    "draws": 0,
+    "a_win_rate": 0.5,
+    "b_win_rate": 0.5,
+    "draw_rate": 0.0,
+    "avg_game_length": 36.4,
+    "first_player_wins": {
+     "first": 20,
+     "second": 10
+    },
+    "a_stats": {
+     "decisions": 486,
+     "avg_time_ms": 41.73149774897212,
+     "max_time_ms": 144.94569900000442,
+     "avg_nodes": 1376.0102880658437,
+     "total_nodes": 668741,
+     "avg_depth_reached": 3.897119341563786,
+     "configured_depth": 4
+    },
+    "b_stats": {
+     "decisions": 486,
+     "avg_time_ms": 8.25738878394992,
+     "max_time_ms": 69.09683000003497,
+     "avg_nodes": 301.3847736625514,
+     "total_nodes": 146473,
+     "avg_depth_reached": 3.8909465020576133,
+     "configured_depth": 4
+    }
+   }
+  ],
+  "comparison": [
+   {
+    "depth": 1,
+    "positions": 27,
+    "minimax_avg_nodes": 6.851851851851852,
+    "alphabeta_avg_nodes": 6.851851851851852,
+    "minimax_avg_time_ms": 0.4310826666706244,
+    "alphabeta_avg_time_ms": 0.4658497777730493,
+    "node_reduction_pct": 0.0,
+    "speedup": 0.9253684068099682,
+    "same_move_rate": 1.0,
+    "same_score_rate": 1.0
+   },
+   {
+    "depth": 2,
+    "positions": 27,
+    "minimax_avg_nodes": 51.074074074074076,
+    "alphabeta_avg_nodes": 23.925925925925927,
+    "minimax_avg_time_ms": 2.6012892962996745,
+    "alphabeta_avg_time_ms": 1.102200777760724,
+    "node_reduction_pct": 53.15445975344453,
+    "speedup": 2.3600866092515016,
+    "same_move_rate": 1.0,
+    "same_score_rate": 1.0
+   },
+   {
+    "depth": 3,
+    "positions": 27,
+    "minimax_avg_nodes": 343.962962962963,
+    "alphabeta_avg_nodes": 101.18518518518519,
+    "minimax_avg_time_ms": 10.866870407421967,
+    "alphabeta_avg_time_ms": 2.695761592597726,
+    "node_reduction_pct": 70.58253472596103,
+    "speedup": 4.031094751576413,
+    "same_move_rate": 1.0,
+    "same_score_rate": 1.0
+   },
+   {
+    "depth": 4,
+    "positions": 27,
+    "minimax_avg_nodes": 2240.3333333333335,
+    "alphabeta_avg_nodes": 313.962962962963,
+    "minimax_avg_time_ms": 65.2805201111143,
+    "alphabeta_avg_time_ms": 7.718986111112995,
+    "node_reduction_pct": 85.98588173056258,
+    "speedup": 8.4571366202007,
+    "same_move_rate": 1.0,
+    "same_score_rate": 1.0
+   },
+   {
+    "depth": 5,
+    "positions": 27,
+    "minimax_avg_nodes": 14611.0,
+    "alphabeta_avg_nodes": 1104.148148148148,
+    "minimax_avg_time_ms": 430.92928370370174,
+    "alphabeta_avg_time_ms": 31.619681703718758,
+    "node_reduction_pct": 92.44303505476594,
+    "speedup": 13.628514282388258,
+    "same_move_rate": 1.0,
+    "same_score_rate": 1.0
+   }
+  ],
+  "alphabeta_deeper_profile": [
+   {
+    "agent": "Alpha-Beta (d=6)",
+    "spec": {
+     "kind": "alphabeta",
+     "depth": 6
+    },
+    "positions": 27,
+    "avg_nodes": 3158.1111111111113,
+    "median_nodes": 2486,
+    "avg_time_ms": 77.3405681111146,
+    "median_time_ms": 57.43035600005442,
+    "avg_depth_reached": 6.0
+   },
+   {
+    "agent": "Alpha-Beta (d=7)",
+    "spec": {
+     "kind": "alphabeta",
+     "depth": 7
+    },
+    "positions": 27,
+    "avg_nodes": 11508.25925925926,
+    "median_nodes": 9472,
+    "avg_time_ms": 308.15368462963386,
+    "median_time_ms": 241.77883699996983,
+    "avg_depth_reached": 7.0
+   }
+  ],
+  "alphabeta_profile": [
+   {
+    "agent": "Alpha-Beta (d=1)",
+    "spec": {
+     "kind": "alphabeta",
+     "depth": 1
+    },
+    "positions": 27,
+    "avg_nodes": 6.851851851851852,
+    "median_nodes": 7,
+    "avg_time_ms": 0.4658497777730493,
+    "median_time_ms": 0.446424999950068,
+    "avg_depth_reached": 1.0
+   },
+   {
+    "agent": "Alpha-Beta (d=2)",
+    "spec": {
+     "kind": "alphabeta",
+     "depth": 2
+    },
+    "positions": 27,
+    "avg_nodes": 23.925925925925927,
+    "median_nodes": 23,
+    "avg_time_ms": 1.102200777760724,
+    "median_time_ms": 1.0677110000187895,
+    "avg_depth_reached": 2.0
+   },
+   {
+    "agent": "Alpha-Beta (d=3)",
+    "spec": {
+     "kind": "alphabeta",
+     "depth": 3
+    },
+    "positions": 27,
+    "avg_nodes": 101.18518518518519,
+    "median_nodes": 95,
+    "avg_time_ms": 2.695761592597726,
+    "median_time_ms": 2.5766389999262174,
+    "avg_depth_reached": 3.0
+   },
+   {
+    "agent": "Alpha-Beta (d=4)",
+    "spec": {
+     "kind": "alphabeta",
+     "depth": 4
+    },
+    "positions": 27,
+    "avg_nodes": 313.962962962963,
+    "median_nodes": 291,
+    "avg_time_ms": 7.718986111112995,
+    "median_time_ms": 6.917808000025616,
+    "avg_depth_reached": 4.0
+   },
+   {
+    "agent": "Alpha-Beta (d=5)",
+    "spec": {
+     "kind": "alphabeta",
+     "depth": 5
+    },
+    "positions": 27,
+    "avg_nodes": 1104.148148148148,
+    "median_nodes": 1033,
+    "avg_time_ms": 31.619681703718758,
+    "median_time_ms": 25.37671200002478,
+    "avg_depth_reached": 5.0
+   }
+  ]
+ },
+ "exp4_mcts": {
+  "budgets": [
+   50,
+   100,
+   250,
+   500,
+   1000,
+   2000
+  ],
+  "opponents": {
+   "greedy": {
+    "label": "Greedy",
+    "results": [
+     {
+      "simulations": 50,
+      "games": 30,
+      "mcts_wins": 1,
+      "opponent_wins": 29,
+      "draws": 0,
+      "mcts_win_rate": 0.03333333333333333,
+      "opponent_win_rate": 0.9666666666666667,
+      "draw_rate": 0.0,
+      "avg_time_ms": 3.6679373433682474,
+      "max_time_ms": 9.476772000084566
+     },
+     {
+      "simulations": 100,
+      "games": 30,
+      "mcts_wins": 7,
+      "opponent_wins": 22,
+      "draws": 1,
+      "mcts_win_rate": 0.23333333333333334,
+      "opponent_win_rate": 0.7333333333333333,
+      "draw_rate": 0.03333333333333333,
+      "avg_time_ms": 5.747522860655666,
+      "max_time_ms": 10.568888000079824
+     },
+     {
+      "simulations": 250,
+      "games": 30,
+      "mcts_wins": 14,
+      "opponent_wins": 16,
+      "draws": 0,
+      "mcts_win_rate": 0.4666666666666667,
+      "opponent_win_rate": 0.5333333333333333,
+      "draw_rate": 0.0,
+      "avg_time_ms": 13.689919319441499,
+      "max_time_ms": 36.14387799996166
+     },
+     {
+      "simulations": 500,
+      "games": 30,
+      "mcts_wins": 19,
+      "opponent_wins": 9,
+      "draws": 2,
+      "mcts_win_rate": 0.6333333333333333,
+      "opponent_win_rate": 0.3,
+      "draw_rate": 0.06666666666666667,
+      "avg_time_ms": 25.089852458860825,
+      "max_time_ms": 70.86153099999137
+     },
+     {
+      "simulations": 1000,
+      "games": 30,
+      "mcts_wins": 21,
+      "opponent_wins": 7,
+      "draws": 2,
+      "mcts_win_rate": 0.7,
+      "opponent_win_rate": 0.23333333333333334,
+      "draw_rate": 0.06666666666666667,
+      "avg_time_ms": 56.14478933653816,
+      "max_time_ms": 141.05282900004568
+     },
+     {
+      "simulations": 2000,
+      "games": 30,
+      "mcts_wins": 21,
+      "opponent_wins": 8,
+      "draws": 1,
+      "mcts_win_rate": 0.7,
+      "opponent_win_rate": 0.26666666666666666,
+      "draw_rate": 0.03333333333333333,
+      "avg_time_ms": 110.14967160000157,
+      "max_time_ms": 252.84623299990017
+     }
+    ]
+   },
+   "alphabeta_d3": {
+    "label": "Alpha-Beta (d=3)",
+    "results": [
+     {
+      "simulations": 50,
+      "games": 30,
+      "mcts_wins": 3,
+      "opponent_wins": 27,
+      "draws": 0,
+      "mcts_win_rate": 0.1,
+      "opponent_win_rate": 0.9,
+      "draw_rate": 0.0,
+      "avg_time_ms": 3.031499791668403,
+      "max_time_ms": 8.34210699997584
+     },
+     {
+      "simulations": 100,
+      "games": 30,
+      "mcts_wins": 9,
+      "opponent_wins": 20,
+      "draws": 1,
+      "mcts_win_rate": 0.3,
+      "opponent_win_rate": 0.6666666666666666,
+      "draw_rate": 0.03333333333333333,
+      "avg_time_ms": 5.739141310604968,
+      "max_time_ms": 19.373119000078987
+     },
+     {
+      "simulations": 250,
+      "games": 30,
+      "mcts_wins": 10,
+      "opponent_wins": 20,
+      "draws": 0,
+      "mcts_win_rate": 0.3333333333333333,
+      "opponent_win_rate": 0.6666666666666666,
+      "draw_rate": 0.0,
+      "avg_time_ms": 14.32290612893179,
+      "max_time_ms": 35.189563999892925
+     },
+     {
+      "simulations": 500,
+      "games": 30,
+      "mcts_wins": 9,
+      "opponent_wins": 20,
+      "draws": 1,
+      "mcts_win_rate": 0.3,
+      "opponent_win_rate": 0.6666666666666666,
+      "draw_rate": 0.03333333333333333,
+      "avg_time_ms": 27.609259522650877,
+      "max_time_ms": 70.66866399998162
+     },
+     {
+      "simulations": 1000,
+      "games": 30,
+      "mcts_wins": 16,
+      "opponent_wins": 11,
+      "draws": 3,
+      "mcts_win_rate": 0.5333333333333333,
+      "opponent_win_rate": 0.36666666666666664,
+      "draw_rate": 0.1,
+      "avg_time_ms": 54.70562717582303,
+      "max_time_ms": 146.9293509999261
+     },
+     {
+      "simulations": 2000,
+      "games": 30,
+      "mcts_wins": 19,
+      "opponent_wins": 11,
+      "draws": 0,
+      "mcts_win_rate": 0.6333333333333333,
+      "opponent_win_rate": 0.36666666666666664,
+      "draw_rate": 0.0,
+      "avg_time_ms": 102.80003626060216,
+      "max_time_ms": 277.4083790000077
+     }
+    ]
+   }
+  }
+ },
+ "memory": [
+  {
+   "agent": "Random",
+   "positions": 4,
+   "avg_peak_kb": 1.46484375,
+   "max_peak_kb": 1.611328125
+  },
+  {
+   "agent": "Greedy",
+   "positions": 4,
+   "avg_peak_kb": 7.33642578125,
+   "max_peak_kb": 8.2197265625
+  },
+  {
+   "agent": "Minimax (d=4)",
+   "positions": 4,
+   "avg_peak_kb": 7.306396484375,
+   "max_peak_kb": 7.9541015625
+  },
+  {
+   "agent": "Alpha-Beta (d=4)",
+   "positions": 4,
+   "avg_peak_kb": 7.257568359375,
+   "max_peak_kb": 7.9072265625
+  },
+  {
+   "agent": "Alpha-Beta (d=6)",
+   "positions": 4,
+   "avg_peak_kb": 8.0947265625,
+   "max_peak_kb": 8.2041015625
+  },
+  {
+   "agent": "MCTS (n=1000)",
+   "positions": 4,
+   "avg_peak_kb": 275.857421875,
+   "max_peak_kb": 280.509765625
+  }
+ ],
+ "meta": {
+  "generated_at": "2026-11-13T12:38:31+00:00",
+  "quick_run": false,
+  "config": {
+   "rows": 6,
+   "cols": 7,
+   "n": 4,
+   "gravity": true
+  },
+  "seed": 2026,
+  "python": "3.13.18",
+  "numpy": "2.5.3",
+  "machine": "x86_64",
+  "cpu_count": 2,
+  "games_per_pairing": {
+   "exp1": 40,
+   "exp2": 30,
+   "exp3": 30,
+   "exp4": 30
+  },
+  "opening_plies": 4,
+  "sample_positions": 27,
+  "wall_clock_seconds": 207.3,
+  "notes": [
+   "Games are played in pairs sharing a random 4-ply opening with sides swapped.",
+   "Decision times are wall-clock per move on the machine above (pure Python + NumPy); two worker processes ran games in parallel.",
+   "Cost profiles use positions reached by random play, not strong play.",
+   "'Nodes' = positions visited by the search (for MCTS: simulations)."
+  ]
+ }
+}
