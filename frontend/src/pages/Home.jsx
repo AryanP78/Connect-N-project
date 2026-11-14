@@ -70,24 +70,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <section className="card p-5 sm:p-6">
-        <div className="label mb-3">Architecture</div>
-        <div className="grid sm:grid-cols-4 gap-3 text-sm">
-          {[
-            ['Game engine', 'Rules only: validation, gravity / free placement, win + draw detection, undo.'],
-            ['Agents + heuristic', 'Common interface; shared, configurable evaluation function.'],
-            ['Benchmark framework', 'Paired-opening tournaments measuring win rate, time, nodes, depth, memory.'],
-            ['FastAPI + React', 'Stateless API; this UI renders the board and analytics.'],
-          ].map(([t, d], i) => (
-            <div key={t} className="rounded-xl bg-raised border border-line p-3">
-              <div className="text-accent text-xs font-semibold">0{i + 1}</div>
-              <div className="font-semibold mt-0.5">{t}</div>
-              <div className="text-xs text-ink2 mt-1">{d}</div>
-            </div>
-          ))}
-        </div>
-      </section>
     </div>
   )
 }
