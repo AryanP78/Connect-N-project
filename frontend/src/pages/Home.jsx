@@ -78,7 +78,7 @@ export default function Home() {
             ['Game engine', 'Rules only: validation, gravity / free placement, win + draw detection, undo.'],
             ['Agents + heuristic', 'Common interface; shared, configurable evaluation function.'],
             ['Benchmark framework', 'Paired-opening tournaments measuring win rate, time, nodes, depth, memory.'],
-            ['FastAPI + React', 'Stateless API; this UI renders the board, insights and analytics.'],
+            ['FastAPI + React', 'Stateless API; this UI renders the board and analytics.'],
           ].map(([t, d], i) => (
             <div key={t} className="rounded-xl bg-raised border border-line p-3">
               <div className="text-accent text-xs font-semibold">0{i + 1}</div>

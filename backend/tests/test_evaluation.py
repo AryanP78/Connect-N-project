@@ -3,7 +3,7 @@ import numpy as np
 
 from backend.engine import ConnectNGame, GameConfig
 from backend.evaluation import (
-    MAX_HEURISTIC, WIN_SCORE, Evaluator, HeuristicWeights, evaluate, explain_position,
+    MAX_HEURISTIC, WIN_SCORE, Evaluator, HeuristicWeights, evaluate, get_evaluator,
 )
 from .conftest import random_position
 
@@ -47,23 +47,23 @@ def test_blocked_window_is_not_counted():
     open_two = ConnectNGame.from_moves(None, [2, 6, 3, 6])
     # same stones but the right side is capped by an opponent token in the window
     capped = ConnectNGame.from_moves(None, [2, 1, 3, 4])
-    b_open = explain_position(open_two, 1)["own_windows_by_tokens"][2]
-    b_capped = explain_position(capped, 1)["own_windows_by_tokens"][2]
+    b_open = get_evaluator(open_two.config).breakdown(open_two.cells, 1)["own_windows_by_tokens"][2]
+    b_capped = get_evaluator(capped.config).breakdown(capped.cells, 1)["own_windows_by_tokens"][2]
     assert b_open > b_capped
 
 
 def test_immediate_threat_is_counted_and_rewarded():
     g = ConnectNGame.from_moves(None, [0, 6, 1, 6, 2, 5])  # P1 threatens column 3 right now
-    b = explain_position(g, 1)
+    b = get_evaluator(g.config).breakdown(g.cells, 1)
     assert b["own_immediate_threats"] == 1
     assert b["components"]["immediate_threats"] > 0
-    assert explain_position(g, 2)["opponent_immediate_threats"] == 1
+    assert get_evaluator(g.config).breakdown(g.cells, 2)["opponent_immediate_threats"] == 1
 
 
 def test_threat_above_an_empty_cell_is_not_immediate_under_gravity():
     # P1 holds (row4, cols 0-2); the completing cell (row4, col3) sits above the empty (row5, col3).
     g = ConnectNGame.from_moves(None, [6, 0, 0, 1, 1, 2, 2])
-    b = explain_position(g, 1)
+    b = get_evaluator(g.config).breakdown(g.cells, 1)
     assert b["own_windows_by_tokens"][3] >= 1      # the 3-window exists ...
     assert b["own_immediate_threats"] == 0         # ... but cannot be played yet
     assert b["opponent_immediate_threats"] == 1    # while P2's bottom-row three can (column 3)
@@ -72,7 +72,7 @@ def test_threat_above_an_empty_cell_is_not_immediate_under_gravity():
 def test_free_placement_threat_is_always_immediate():
     cfg = GameConfig(6, 7, 4, gravity=False)
     g = ConnectNGame.from_moves(cfg, [4 * 7 + 0, 0, 4 * 7 + 1, 1, 4 * 7 + 2, 2])
-    assert explain_position(g, 1)["own_immediate_threats"] >= 1
+    assert get_evaluator(g.config).breakdown(g.cells, 1)["own_immediate_threats"] >= 1
 
 
 def test_weights_are_configurable():

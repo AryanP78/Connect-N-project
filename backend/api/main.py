@@ -21,9 +21,9 @@ from ..agents import (
 )
 from ..benchmarks import run_pairing
 from ..engine import ConnectNGame, GameConfig, IllegalMoveError
-from ..evaluation import DEFAULT_WEIGHTS, explain_position
+from ..evaluation import DEFAULT_WEIGHTS
 from .schemas import (
-    AIMoveRequest, AnalyzeRequest, ConfigModel, GameStateRequest, MoveRequest, NewGameRequest,
+    AIMoveRequest, ConfigModel, GameStateRequest, MoveRequest, NewGameRequest,
     SeriesRequest,
 )
 
@@ -141,24 +141,6 @@ def ai_move(req: AIMoveRequest):
     decision = run_agent(resolve_agent_spec(req.agent, req.difficulty), game)
     game.play(decision["move"])
     return {"state": game.to_dict(), "decision": decision}
-
-
-@app.post("/api/game/analyze")
-def analyze(req: AnalyzeRequest):
-    """Evaluate the current position without playing: heuristic breakdown + best move."""
-    game = build_game(req)
-    response: Dict[str, Any] = {
-        "state": game.to_dict(),
-        "evaluation": {
-            "player_1": explain_position(game, 1),
-            "player_2": explain_position(game, 2),
-        },
-        "decision": None,
-    }
-    if not game.is_over:
-        spec = resolve_agent_spec(req.agent, "hard")
-        response["decision"] = run_agent(spec, game)
-    return response
 
 
 @app.post("/api/arena/series")

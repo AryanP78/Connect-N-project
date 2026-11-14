@@ -3,10 +3,9 @@ import Home from './pages/Home.jsx'
 import Game from './pages/Game.jsx'
 import Arena from './pages/Arena.jsx'
 import Analytics from './pages/Analytics.jsx'
-import Insights from './pages/Insights.jsx'
 
 const NAV = [
-  ['/', 'Home'], ['/play', 'Play'], ['/arena', 'AI Arena'], ['/analytics', 'Analytics'], ['/insights', 'AI Insights'],
+  ['/', 'Home'], ['/play', 'Play'], ['/arena', 'AI Arena'], ['/analytics', 'Analytics'],
 ]
 
 function Logo() {
@@ -43,7 +42,6 @@ export default function App() {
           <Route path="/play" element={<Game />} />
           <Route path="/arena" element={<Arena />} />
           <Route path="/analytics" element={<Analytics />} />
-          <Route path="/insights" element={<Insights />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>

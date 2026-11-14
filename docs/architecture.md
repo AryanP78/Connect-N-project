@@ -39,7 +39,7 @@ class Agent(ABC):
     def choose_move(self, game) -> int:          # convenience
 ```
 
-`Decision` carries `move`, `time_ms`, `nodes`, `depth`, `max_depth`, `score`, `move_scores`, an `explanation` string and agent-specific `extra` data (cut-offs, visit counts, ...). It is what the AI Insights screen renders and what the tournament framework aggregates.
+`Decision` carries `move`, `time_ms`, `nodes`, `depth`, `max_depth`, `score`, `move_scores`, an `explanation` string and agent-specific `extra` data (cut-offs, visit counts, ...). It is what the API returns and what the tournament framework aggregates.
 
 ## The API (stateless)
 
@@ -48,7 +48,6 @@ class Agent(ABC):
 | `GET /api/agents` | agent catalogue, difficulty presets, heuristic weights |
 | `POST /api/game/new` / `state` / `move` | create, replay or advance a game |
 | `POST /api/game/ai-move` | let an agent (or a difficulty preset) play; returns the new state and the `Decision` |
-| `POST /api/game/analyze` | heuristic breakdown for both players plus the agent's best move |
 | `POST /api/arena/series` | play a short side-swapped series (<= 30 games) |
 | `GET /api/benchmarks` | the stored experiment results |
 
@@ -67,4 +66,4 @@ Every request includes `config`, `moves` and `first_player`; the engine rebuilds
 
 ## The frontend
 
-React 19 + Vite + Tailwind CSS 4 + Recharts. `useGame` wraps the stateless API (move list in, state out) and guards against stale responses after a reset. `Board` is an SVG component with hover previews, drop animation and a winning-line highlight; `InsightsPanel` renders a `Decision`; `LiveMatch` drives AI-vs-AI playback with pause / step / speed controls. Agent colours are fixed per agent across every chart (a palette validated for colour-blind separation), values are labelled directly on marks, and the layout is responsive down to phone width.
+React 19 + Vite + Tailwind CSS 4 + Recharts. `useGame` wraps the stateless API (move list in, state out) and guards against stale responses after a reset. `Board` is an SVG component with hover previews, drop animation and a winning-line highlight; `LiveMatch` drives AI-vs-AI playback with pause / step / speed controls. Agent colours are fixed per agent across every chart (a palette validated for colour-blind separation), values are labelled directly on marks, and the layout is responsive down to phone width.

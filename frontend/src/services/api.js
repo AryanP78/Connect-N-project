@@ -26,8 +26,6 @@ export const api = {
   move: (config, moves, first_player, move) => request('/api/game/move', { config, moves, first_player, move }),
   aiMove: (config, moves, first_player, agent) =>
     request('/api/game/ai-move', { config, moves, first_player, agent }),
-  analyze: (config, moves, first_player, agent) =>
-    request('/api/game/analyze', { config, moves, first_player, agent }),
   series: (payload) => request('/api/arena/series', payload),
   benchmarks: () => request('/api/benchmarks'),
 }

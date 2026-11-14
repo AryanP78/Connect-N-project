@@ -5,13 +5,11 @@ export const DEFAULT_CONFIG = { rows: 6, cols: 7, n: 4, gravity: true }
 
 /**
  * Game state backed by the stateless API.
- * `decisions` holds every AI decision (with the player who made it) for the insights panels.
  */
 export function useGame(initialConfig = DEFAULT_CONFIG) {
   const [config, setConfig] = useState(initialConfig)
   const [firstPlayer, setFirstPlayer] = useState(1)
   const [state, setState] = useState(null)
-  const [decisions, setDecisions] = useState([])
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(null)
   const busyRef = useRef(false)
@@ -39,7 +37,6 @@ export function useGame(initialConfig = DEFAULT_CONFIG) {
     busyRef.current = false
     setBusy(false)
     setError(null)
-    setDecisions([])
     setConfig(cfg)
     setFirstPlayer(first)
     try {
@@ -58,10 +55,8 @@ export function useGame(initialConfig = DEFAULT_CONFIG) {
   }), [config, state, firstPlayer, guarded])
 
   const aiMove = useCallback((spec) => guarded(async () => {
-    const mover = state.current_player
     const res = await api.aiMove(config, state.moves, firstPlayer, spec)
     setState(res.state)
-    setDecisions((d) => [...d, { ply: state.moves.length, player: mover, decision: res.decision }])
     return res
   }), [config, state, firstPlayer, guarded])
 
@@ -69,9 +64,8 @@ export function useGame(initialConfig = DEFAULT_CONFIG) {
     const moves = state.moves.slice(0, Math.max(0, state.moves.length - count))
     const next = await api.state(config, moves, firstPlayer)
     setState(next)
-    setDecisions((d) => d.filter((x) => x.ply < moves.length))
     return next
   }), [config, state, firstPlayer, guarded])
 
-  return { config, firstPlayer, state, decisions, busy, error, setError, reset, play, aiMove, undo }
+  return { config, firstPlayer, state, busy, error, setError, reset, play, aiMove, undo }
 }

@@ -1,4 +1,4 @@
-"""HTTP API: stateless game flow, validation, AI moves, analysis and arena series."""
+"""HTTP API: stateless game flow, validation, AI moves and arena series."""
 import pytest
 from fastapi.testclient import TestClient
 
@@ -56,7 +56,7 @@ def test_ai_move_by_difficulty(difficulty):
     assert d["time_ms"] >= 0 and d["explanation"]
 
 
-def test_ai_move_exposes_insights_for_search_agents():
+def test_ai_move_returns_decision_statistics_for_search_agents():
     r = client.post("/api/game/ai-move", json={"config": CFG, "moves": [3, 3],
                                                 "agent": {"kind": "alphabeta", "depth": 4}}).json()
     d = r["decision"]
@@ -85,13 +85,6 @@ def test_free_placement_game_over_the_api():
     cfg = {"rows": 5, "cols": 5, "n": 4, "gravity": False}
     r = client.post("/api/game/ai-move", json={"config": cfg, "moves": [12], "agent": {"kind": "greedy"}})
     assert r.status_code == 200 and len(r.json()["state"]["moves"]) == 2
-
-
-def test_analyze_returns_breakdown_and_best_move():
-    r = client.post("/api/game/analyze", json={"config": CFG, "moves": [3, 3, 2],
-                                                "agent": {"kind": "alphabeta", "depth": 3}}).json()
-    assert set(r["evaluation"]) == {"player_1", "player_2"}
-    assert "components" in r["evaluation"]["player_1"] and r["decision"]["move"] in range(7)
 
 
 def test_arena_series_is_consistent():

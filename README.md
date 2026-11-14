@@ -23,9 +23,9 @@ An intelligent Connect-N game-playing platform featuring Minimax, Alpha-Beta Pru
 - **Configurable engine** - gravity (classic) or free-placement rules, boards up to 12x12, any N that fits (2 to the longer side), horizontal / vertical / both diagonal win detection, validated moves, draw detection, undo. Default 6 x 7, N = 4, gravity. The engine contains no AI code.
 - **Five agents behind one interface** - Random, Greedy, Minimax, Alpha-Beta Pruning, Monte Carlo Tree Search.
 - **Reusable heuristic** - open-window counting, immediate-threat / block terms and centre preference, with configurable weights; terminal wins and losses always override it.
-- **Web app** - Home, Play (Human vs AI with four difficulty levels, or AI vs AI), AI Arena (watch matches, run series, scoreboard), Analytics dashboard, AI Insights (position analyzer with per-move values and heuristic breakdown).
+- **Web app** - Home, Play (Human vs AI with four difficulty levels, or AI vs AI), AI Arena (watch matches, run series, scoreboard), Analytics dashboard.
 - **Benchmarking framework** - paired-opening, side-swapped tournaments measuring win / loss / draw rate, decision time, nodes, search depth and memory; four experiments with charts and CSVs generated from executed games.
-- **163 automated tests** covering the engine, heuristic, every agent, Minimax correctness, Alpha-Beta equivalence, tournaments and the HTTP API.
+- **162 automated tests** covering the engine, heuristic, every agent, Minimax correctness, Alpha-Beta equivalence, tournaments and the HTTP API.
 
 ## Quick start
 
@@ -67,10 +67,10 @@ connect-n-ai/
 │   ├── agents/        base.py (interface), random / greedy / minimax / alphabeta / mcts, factory.py
 │   ├── benchmarks/    tournament.py, run_experiments.py, charts.py, report.py
 │   ├── api/           main.py (FastAPI), schemas.py
-│   └── tests/         163 pytest tests
+│   └── tests/         162 pytest tests
 ├── frontend/src/
-│   ├── components/    Board, InsightsPanel, LiveMatch, ui kit
-│   ├── pages/         Home, Game, Arena, Analytics, Insights
+│   ├── components/    Board, LiveMatch, ui kit
+│   ├── pages/         Home, Game, Arena, Analytics
 │   ├── hooks/         useGame (state backed by the stateless API)
 │   └── services/      api.js, agents.js
 ├── docs/              architecture.md, algorithms.md, benchmarks.md, results/, screenshots/
@@ -91,7 +91,7 @@ connect-n-ai/
 ```
 
 - **The engine is the only code that knows the rules.** `ConnectNGame.play()` validates every move (type, range, full column / occupied cell, game over) before touching the board, and `undo()` restores the exact previous state, so search never copies boards.
-- **Agents share one interface.** `Agent.select_move(game)` works on a *copy* of the game, times the decision, verifies the returned move is legal and returns a `Decision` (move, time, nodes, depth, per-move values, explanation). Everything the UI's AI Insights shows comes from this object.
+- **Agents share one interface.** `Agent.select_move(game)` works on a *copy* of the game, times the decision, verifies the returned move is legal and returns a `Decision` (move, time, nodes, depth, per-move values, explanation).
 - **The API keeps no sessions.** Each request carries the configuration and move list; the engine replays and validates it. A client therefore cannot reach an illegal position. Search depth is capped automatically on huge boards so a request cannot hang the server.
 - **The benchmark framework reuses the same engine and agents.** Agents are rebuilt per game from seeded specs, so every experiment is reproducible.
 
@@ -116,7 +116,7 @@ Details and pseudocode: [docs/algorithms.md](docs/algorithms.md).
 ## Testing
 
 ```bash
-pytest                      # all 163 tests, ~5 seconds
+pytest                      # all 162 tests, ~5 seconds
 pytest backend/tests/test_agents.py -k alpha_beta
 ```
 
@@ -131,7 +131,7 @@ pytest backend/tests/test_agents.py -k alpha_beta
 | Minimax | values compared against an independent copy-based reference implementation; finds a forced win in 3 plies; recognises forced losses; prefers faster wins |
 | Alpha-Beta | same chosen move and value as Minimax across 15 config/depth combinations and many positions, never more nodes; prunes >3x at depth 5 |
 | Tournaments | complete five-agent round robin, serial == parallel, reproducible, paired openings, statistics recorded, strong agents beat Random |
-| API | whole game flow, validation errors, AI moves for every difficulty, depth capping, analysis, arena series, JSON-safe scores |
+| API | whole game flow, validation errors, AI moves for every difficulty, depth capping, arena series, JSON-safe scores |
 
 The headless-browser script `scripts/capture_screenshots.py` additionally drives the running UI (plays moves, runs a match and a series, checks every page for console errors and mobile overflow) and regenerates the screenshots.
 
@@ -218,9 +218,9 @@ Full tables, CSV files and charts: [docs/benchmarks.md](docs/benchmarks.md) and 
 
 | | |
 |---|---|
-| ![Home](docs/screenshots/home.png) **Home** | ![Human vs AI](docs/screenshots/play_human_vs_ai.png) **Play: Human vs AI with AI Insights** |
+| ![Home](docs/screenshots/home.png) **Home** | ![Human vs AI](docs/screenshots/play_human_vs_ai.png) **Play: Human vs AI** |
 | ![AI vs AI](docs/screenshots/play_ai_vs_ai.png) **Play: AI vs AI** | ![Arena](docs/screenshots/arena_live_match.png) **AI Arena** |
-| ![Insights](docs/screenshots/ai_insights.png) **AI Insights: position analyzer** | ![Mobile](docs/screenshots/mobile_play.png) **Responsive layout** |
+| ![Mobile](docs/screenshots/mobile_play.png) **Responsive layout** |
 
 ## Limitations and honest notes
 

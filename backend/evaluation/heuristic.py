@@ -169,8 +169,3 @@ def get_evaluator(config: GameConfig, weights: Optional[HeuristicWeights] = None
 def evaluate(game: ConnectNGame, player: int, weights: Optional[HeuristicWeights] = None) -> float:
     """Convenience wrapper: score ``game`` for ``player``."""
     return get_evaluator(game.config, weights).evaluate(game, player)
-
-
-def explain_position(game: ConnectNGame, player: int, weights: Optional[HeuristicWeights] = None) -> Dict:
-    """Feature breakdown of a position, used by the AI Insights screen."""
-    return get_evaluator(game.config, weights).breakdown(game.cells, player)

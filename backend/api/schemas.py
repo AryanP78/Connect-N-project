@@ -40,10 +40,6 @@ class AIMoveRequest(GameStateRequest):
     difficulty: Optional[str] = None
 
 
-class AnalyzeRequest(GameStateRequest):
-    agent: Optional[AgentSpecModel] = None
-
-
 class SeriesRequest(BaseModel):
     config: ConfigModel = ConfigModel()
     agent1: AgentSpecModel

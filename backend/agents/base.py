@@ -8,8 +8,8 @@ Every agent implements :meth:`Agent._decide`.  The public entry point is
 3. times the decision, and
 4. verifies that the returned move is legal before returning it.
 
-The result is a :class:`Decision` carrying the move plus the statistics shown on the
-AI Insights screen and used by the benchmarking framework.
+The result is a :class:`Decision` carrying the move plus the statistics used by the
+benchmarking framework and returned by the API.
 """
 from __future__ import annotations
 

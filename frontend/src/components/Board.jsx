@@ -74,7 +74,7 @@ export default function Board({ board, config, winningCells = [], lastCell, lega
   }
 
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full select-none" role="img"
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full max-w-[620px] mx-auto select-none" role="img"
          aria-label={`Connect ${config.n} board, ${rows} rows by ${cols} columns`}>
       <rect x="0" y={top} width={W} height={H - top} rx="18" fill="#14213d" stroke="#243a66" strokeWidth="2" />
       {showColumnNumbers && Array.from({ length: cols }, (_, c) => (

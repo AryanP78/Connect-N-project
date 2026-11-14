@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import Board from '../components/Board.jsx'
-import InsightsPanel from '../components/InsightsPanel.jsx'
 import LiveMatch from '../components/LiveMatch.jsx'
 import { AgentPicker, Card, ConfigPanel, ErrorBanner, SectionTitle, Spinner, StatusBanner, TokenDot } from '../components/ui.jsx'
 import { DEFAULT_CONFIG, useGame } from '../hooks/useGame.js'
@@ -11,7 +10,7 @@ function HumanVsAI({ config, setConfig }) {
   const [humanFirst, setHumanFirst] = useState(true)
   const [custom, setCustom] = useState(null) // custom agent overrides the difficulty preset
   const game = useGame(config)
-  const { state, busy, error, decisions } = game
+  const { state, busy, error } = game
   const human = humanFirst ? 1 : 2
   const aiPlayer = 3 - human
   const spec = custom ?? DIFFICULTIES[level]
@@ -28,11 +27,10 @@ function HumanVsAI({ config, setConfig }) {
   }, [state, busy, aiPlayer])
 
   const restart = (cfg = config, first = humanFirst) => game.reset(cfg, first ? 1 : 2)
-  const lastAI = [...decisions].reverse().find((d) => d.player === aiPlayer)?.decision
   const moveCount = state?.moves.length ?? 0
 
   return (
-    <div className="grid lg:grid-cols-[300px_minmax(0,1fr)_380px] gap-5">
+    <div className="grid lg:grid-cols-[300px_minmax(0,1fr)] gap-5">
       <Card className="p-4 space-y-5 h-fit">
         <div>
           <div className="label mb-2">Difficulty</div>
@@ -89,7 +87,6 @@ function HumanVsAI({ config, setConfig }) {
           {config.gravity ? 'Click a column to drop your token.' : 'Free placement: click any empty cell.'} Connect {config.n} in a row - horizontally, vertically or diagonally - to win.
         </p>
       </div>
-      <InsightsPanel decision={lastAI} config={config} title="AI Insights" />
     </div>
   )
 }

@@ -44,9 +44,8 @@ with sync_playwright() as p:
     box = board.bounding_box()
     # click the middle column (centre x), anywhere vertically
     page.mouse.click(box["x"] + box["width"] / 2, box["y"] + box["height"] / 2)
-    page.wait_for_selector("text=Selected move", timeout=20000)
+    page.wait_for_function("document.querySelector('[role=status]')?.innerText.includes('move 2')", timeout=20000)
     page.wait_for_selector("text=Your turn", timeout=20000)
-    check(page.locator("text=Nodes explored").count() > 0, "AI insights shown after the AI move")
     page.wait_for_timeout(500)  # input is (correctly) ignored while a move is in flight
     page.mouse.click(box["x"] + box["width"] * 0.35, box["y"] + box["height"] / 2)
     page.wait_for_function("document.querySelector('[role=status]')?.innerText.includes('move 4')", timeout=20000)
@@ -87,18 +86,6 @@ with sync_playwright() as p:
     page.wait_for_timeout(1500)
     page.screenshot(path=OUT / "analytics_dashboard.png", full_page=True)
     check(page.locator("svg.recharts-surface").count() >= 8, f"charts rendered ({page.locator('svg.recharts-surface').count()})")
-
-    # ---- Insights
-    page.goto(BASE + "/insights")
-    page.wait_for_selector("text=Selected move", timeout=30000)
-    box = page.locator("svg[role=img]").first.bounding_box()
-    for frac in (0.5, 0.5, 0.36):
-        page.mouse.click(box["x"] + box["width"] * frac, box["y"] + box["height"] / 2)
-        page.wait_for_timeout(700)
-    page.wait_for_selector("text=Heuristic evaluation", timeout=30000)
-    page.wait_for_timeout(1200)
-    page.screenshot(path=OUT / "ai_insights.png", full_page=True)
-    check(page.locator("text=Own open windows").count() > 0, "insights heuristic breakdown")
 
     # ---- Mobile layout
     mob = browser.new_page(viewport={"width": 390, "height": 844}, device_scale_factor=2)

@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { useGame } from '../hooks/useGame.js'
 import { agentLabel } from '../services/agents.js'
 import Board from './Board.jsx'
-import InsightsPanel from './InsightsPanel.jsx'
 import { Card, ErrorBanner, Spinner, StatusBanner, TokenDot } from './ui.jsx'
 
 /**
@@ -11,7 +10,7 @@ import { Card, ErrorBanner, Spinner, StatusBanner, TokenDot } from './ui.jsx'
  */
 export default function LiveMatch({ config, specs, onFinish, autoAlternate = true, resetKey = 0 }) {
   const game = useGame(config)
-  const { state, busy, error, decisions } = game
+  const { state, busy, error } = game
   const [playing, setPlaying] = useState(false)
   const [delay, setDelay] = useState(450)
   const [swapped, setSwapped] = useState(false)
@@ -49,11 +48,10 @@ export default function LiveMatch({ config, specs, onFinish, autoAlternate = tru
   }
   const nextGame = () => newGame(autoAlternate ? !swapped : swapped)
 
-  const lastFor = (token) => [...decisions].reverse().find((d) => d.player === token)?.decision
   const names = { 1: agentLabel(tokenSpec(1)), 2: agentLabel(tokenSpec(2)) }
 
   return (
-    <div className="grid lg:grid-cols-[minmax(0,1fr)_380px] gap-5">
+    <div>
       <div className="space-y-3">
         <StatusBanner state={state} names={names} />
         <Card className="p-3 sm:p-5">
@@ -80,10 +78,6 @@ export default function LiveMatch({ config, specs, onFinish, autoAlternate = tru
           <span><TokenDot player={1} /> <b className="text-ink">{names[1]}</b> (moves first)</span>
           <span><TokenDot player={2} /> <b className="text-ink">{names[2]}</b></span>
         </div>
-      </div>
-      <div className="space-y-4">
-        <InsightsPanel decision={lastFor(1)} config={config} title="AI Insights" playerLabel="Player 1" />
-        <InsightsPanel decision={lastFor(2)} config={config} title="AI Insights" playerLabel="Player 2" />
       </div>
     </div>
   )
